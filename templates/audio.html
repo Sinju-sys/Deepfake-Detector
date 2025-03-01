@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="http://127.0.0.1:5000/static/css/audio.css">
+	<title>Input Audio With Preview Audio</title>
+	<style>
+        .audio {
+	display: block;
+	width: 100%;
+	padding: 16px 0;
+	border-radius: 15px;
+	background: var(--blue);
+	color: #fff;
+	font-weight: 500;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+.audio:hover {
+	background: var(--dark-blue);
+}
+    </style>
+</head>
+<body>
+		<nav>
+		  <img src="http://127.0.0.1:5000/static/img/logo.png" class="logo"  height="50px">
+		  <ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Services</a></li>
+		  </ul>
+		</nav>
+		
+	<div style="display: flex;justify-content: space-around;width: 75%;">
+	<div class="container">
+		<form method="post"  action="/upload_audio">
+
+			<input type="file" name="audio" id="file" accept="audio/*" hidden required>
+			<div class="audio-area" data-audio="">
+				<i class='bx bxs-cloud-upload icon'></i>
+				<h3>Upload Audio</h3>
+				<p>Audio size must be less than <span>10MB</span></p>
+			</div>
+			<button type="button" class="select-audio">Select Audio</button>
+			<br>
+			<input type="submit" class="audio">
+		</form>
+		</div>
+	
+		{% if inputaudio %}
+		<div class="container">
+			<audio autoplay controls>
+				<source src="{{ inputaudio }}" style="width: 100%;" >
+			</audio>
+		</div>
+		
+	<div class="container">
+		<h3>{{output}}</h3>
+	</div>
+
+		{% endif %}
+	
+
+	<script src="http://127.0.0.1:5000/static/js/audio.js"></script>
+</body>
+</html>
