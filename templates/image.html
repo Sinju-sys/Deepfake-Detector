@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,4 +67,74 @@
 
 	<script src="http://127.0.0.1:5000/static/js/image.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="http://127.0.0.1:5000/static/css/image.css">
+	<title>Input Image With Preview Image</title>
+	<style>
+        .image {
+	display: block;
+	width: 100%;
+	padding: 16px 0;
+	border-radius: 15px;
+	background: var(--blue);
+	color: #fff;
+	font-weight: 500;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	transition: all .3s ease;
+}
+.image:hover {
+	background: var(--dark-blue);
+}
+    </style>
+</head>
+<body>
+		<nav>
+		  <img src="http://127.0.0.1:5000/static/img/logo.png" class="logo"  height="50px">
+		  <ul>
+			<li><a href="/">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Services</a></li>
+		  </ul>
+		</nav>
+		
+	<div style="display: flex;justify-content: space-around;width: 75%;">
+	<div class="container">
+		<form method="post"  action="/upload_image">
+
+			<input type="file" name="image" id="file" accept="image/*" hidden required>
+			<div class="img-area" data-img="">
+				<i class='bx bxs-cloud-upload icon'></i>
+				<h3>Upload Image</h3>
+				<p>Image size must be less than <span>2MB</span></p>
+			</div>
+			<button type="button" class="select-image">Select Image</button>
+			<br>
+			<input type="submit" class="image">
+		</form>
+		</div>
+	
+		{% if inputimage %}
+		<div class="container">
+			<img src="{{ inputimage }}" style="width: 100%;">
+		
+		</div>
+		
+	<div class="container">
+		<img src="{{ outputimage }}" style="width: 100%;">
+	</div>
+
+		{% endif %}
+	
+
+	<script src="http://127.0.0.1:5000/static/js/image.js"></script>
+</body>
+>>>>>>> master
 </html>
